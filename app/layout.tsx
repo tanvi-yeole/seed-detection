@@ -2,16 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Figtree } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider, SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -33,7 +25,15 @@ export default function RootLayout({
         <body
           className={`${figtree.className} antialiased`}
         >
-          {children}
+          <header>
+            <Navbar/>
+          </header>
+          <main>
+            {children}
+          </main>
+          <footer>
+            <Footer/>
+          </footer>
         </body>
       </html>
     </ClerkProvider>
